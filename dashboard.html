@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loja Virtual</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+      
+      header, footer {
+        background-color: #37a7d3; /* Cor do header e footer */
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+      
+      header h1 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      
+      header button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+      main {
+        padding: 20px;
+        text-align: center;
+      }
+      
+      .produtos {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 40px;
+        display: flex ;
+        justify-content: center;
+      }
+      
+      .produto {
+        margin-top: 190px;
+        width: 100%;
+        height: 200px; /* Ajuste de altura das caixas */
+        border: 2px solid #888;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        padding: 100px;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+      }
+      
+      .produto:hover {
+        background-color: #cce5ff;
+      }
+      
+      .produto h3 {
+        margin: 10px 0;
+        font-size: 18px;
+        color: #333;
+      }
+      
+      footer {
+        margin-top: 130px;
+        width: 1830px;
+        background-color: #9ca3ad;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+      }
+      
+      footer p {
+        margin: 0;
+      }
+      
+      button#logoutBtn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+      button#logoutBtn:hover {
+        text-decoration: underline;
+      }
+      
+      #recomecar {
+        margin-top: 20px;
+        padding: 10px 25px;
+        background-color: #0066cc;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      
+      #recomecar:hover {
+        background-color: #004999;
+      }
+      
+      #mensagem {
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Hom</h1>
+  <button id="logoutBtn">Sair</button>
+</header>
+
+<section class="produtos">
+  <div class="produto"></div>
+  <div class="produto"></div>
+  <div class="produto"></div>
+  <div class="produto"></div>
+</section>
+
+<footer>
+  &copy; 2025 Loja Hom. Todos os direitos reservados.
+</footer>
+
+<script>
+  // Bloqueia acesso direto se não estiver logado
+  if (!sessionStorage.getItem('logado')) {
+    window.location.href = 'index.html';
+  }
+
+  // Logout: limpa sessão e redireciona para login
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    sessionStorage.removeItem('logado');
+    window.location.href = 'index.html';
+  });
+</script>
+
+</body>
+</html>
